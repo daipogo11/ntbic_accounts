@@ -40,7 +40,7 @@ class PermissionController extends BaseController
             'message' => null,
             'data' => $request
                 ->user()
-                ->hasPermissionTo($request->get('source'), $request->get('permission'))
+                ->hasPermissionTo($request->get('source'), $request->get('name'))
         ], 200);
     }
 
@@ -51,7 +51,7 @@ class PermissionController extends BaseController
             'message' => null,
             'data' => $request
                 ->user()
-                ->hasAnyPermissionsTo($request->get('source'), $request->get('permission'))
+                ->hasAnyPermissionsTo($request->get('source'), $request->get('name'))
         ], 200);
     }
 }

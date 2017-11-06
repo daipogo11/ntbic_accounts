@@ -21,7 +21,7 @@ class RoleController extends BaseController
             'error' => false,
             'message' => null,
             'data' => $request->user()
-                ->hasAnyRoles($request->get('role'), $request->get('source'))
+                ->hasAnyRoles($request->get('source'), $request->get('name'))
         ], 200);
     }
 }
