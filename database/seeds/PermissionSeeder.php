@@ -21,7 +21,10 @@ class PermissionSeeder extends Seeder
         ];
 
         $ntbicHomeEntries = [
-            'tin_tuc'
+            'tin_tuc', 'su_kien',
+            'doi_tac', 'cong_nghe',
+            'cau_hoi_thuong_gap', 'tuyen_dung',
+            'chuyen_gia', 'to_chuc', 'anh_sidebar'
         ];
 
         foreach ($ntbicDatabaseEntries as $ntbicDatabaseEntry) {
@@ -35,7 +38,7 @@ class PermissionSeeder extends Seeder
         foreach ($ntbicHomeEntries as $ntbicHomeEntry) {
             foreach ($actions as $action) {
                 Permission::create([
-                    'source' => 'ntbic_database', 'name' => "$action $ntbicHomeEntry"
+                    'source' => 'ntbic_home', 'name' => "$action $ntbicHomeEntry"
                 ]);
             }
         }

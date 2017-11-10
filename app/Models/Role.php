@@ -10,6 +10,8 @@ class Role extends Model
 {
     protected $table = "roles";
 
+    protected $fillable = ['name' , 'source'];
+
     public function permissions(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\Permission', 'role_has_permissions');

@@ -18,8 +18,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
 
 ## SSO ROUTE
 Route::get('sso/login', 'SsoController@login')->name('sso.login_form');
@@ -33,3 +31,10 @@ Route::get('/sso-ticket/authenticate/{ssoTicketSecret}', 'SsoTicketController@au
     ->name('sso_ticket.authenticate');
 Route::post('/sso-ticket/update-auth-ticket', 'SsoTicketController@updateAuthTicket')
     ->name('sso_ticket.update');
+
+## MANAGER ROUTE
+Route::group(['prefix' => 'admin'], function() {
+	Route::resource('permission', 'Manager\PermissionController');
+	Route::resource('role', 'Manager\RoleController');
+	Route::resource('users', 'Manager\UserController');
+});
